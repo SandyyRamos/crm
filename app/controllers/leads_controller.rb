@@ -16,6 +16,9 @@ class LeadsController < ApplicationController
 
   def create
     @lead = Lead.new(lead_params)
+    @lead.status = "prospect"
+    @lead.add_by = current_user.email
+    @lead.conversation = 0
     if @lead.save
       redirect_to leads_path, notice: "Creado con éxito."
     else
@@ -51,6 +54,6 @@ class LeadsController < ApplicationController
   end
 
   def lead_params
-    params.require(:lead).permit(:email, :name, :phone, :status)
+    params.require(:lead).permit(:email, :name, :phone)
   end
 end
