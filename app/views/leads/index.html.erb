@@ -1,0 +1,37 @@
+
+<h1>Prospectos</h1> <%= link_to "Ingresar nuevo prospecto", new_lead_path, class: "btn btn-primary" %>
+
+<p>Prospectos: <%= @count[:prospect] %> | Interesados: <%= @count[:interested] %> | Clientes: <%= @count[:client] %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Nombre</th>
+      <th>Teléfono</th>
+      <th>Status</th>
+      <th>Ingresado por</th>
+      <th>Fecha de ingreso</th>
+      <th>Conversaciones</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+        <td><%= lead.email %></td>
+        <td><%= lead.name %></td>
+        <td><%= lead.phone %></td>
+        <td><%= lead.status %></td>
+        <td><%= lead.add_by %></td>
+        <td><%= lead.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+        <td><%= lead.conversaciones.count %></td>
+        <td>
+          <%= link_to "Ver", lead_path(lead), class: 'btn btn-info' %>
+          <%= link_to "Editar", edit_lead_path(lead), class: 'btn btn-warning' %>
+          <%= link_to "Eliminar", lead_path(lead), method: :delete, data: { confirm: '¿Estás seguro de eliminar este lead?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
