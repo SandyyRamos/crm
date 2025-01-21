@@ -2,7 +2,7 @@ class LeadsController < ApplicationController
   before_action :set_lead, only: [:show, :edit, :update, :destroy]
 
   def index
-    @leads = Lead.all.order(created_at: :desc)
+    @leads = Lead.order_desc
     @count = {
       prospect: Lead.where(status: :prospect).count, #where pone condiciones los que cumple una condicion
       interested: Lead.where(status: :interested).count,

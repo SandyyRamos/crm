@@ -1,5 +1,7 @@
+<h1 class="text-center">Prospectos</h1>
 
-<h1>Prospectos</h1> <%= link_to "Ingresar nuevo prospecto", new_lead_path, class: "btn btn-primary" %>
+
+<%= link_to "Ingresar nuevo prospecto", new_lead_path, class: "btn btn-primary" %>
 
 <p>Prospectos: <%= @count[:prospect] %> | Interesados: <%= @count[:interested] %> | Clientes: <%= @count[:client] %></p>
 
@@ -17,21 +19,9 @@
     </tr>
   </thead>
   <tbody>
-    <% @leads.each do |lead| %>
-      <tr>
-        <td><%= lead.email %></td>
-        <td><%= lead.name %></td>
-        <td><%= lead.phone %></td>
-        <td><%= lead.status %></td>
-        <td><%= lead.add_by %></td>
-        <td><%= lead.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-        <td><%= lead.conversation %></td>
-        <td>
-          <%= link_to "Ver", lead_path(lead), class: 'btn btn-info' %>
-          <%= link_to "Editar", edit_lead_path(lead), class: 'btn btn-warning' %>
-          <%= link_to "Eliminar", lead_path(lead), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de eliminar este lead?' }, class: 'btn btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
+    <%# <% @leads.each do |lead| %>
+    <%# <%= render "lead", lead: lead %>
+    <%# <% end %>
+    <%= render @leads %>
   </tbody>
 </table>
