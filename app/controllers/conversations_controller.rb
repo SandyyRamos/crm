@@ -1,6 +1,5 @@
 class ConversationsController < ApplicationController
   before_action :set_lead
-
   def index
     @convesations = Conversation.order_desc
   end
