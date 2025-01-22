@@ -6,7 +6,7 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @conversations = Conversation.new
+    @conversatios = Conversation.new
   end
 
   def create
