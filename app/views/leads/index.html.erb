@@ -1,11 +1,10 @@
-<h1 class="text-center">Prospectos</h1>
+<h1 class="text-center mt-5 mb-5">
+  Prospectos | <%= link_to "Ingresar nuevo prospecto", new_lead_path, style: "color: green; text-decoration: none;" %>
+</h1>
 
+<h3 class= "text-center mb-5">Prospectos: <%= @count[:prospect] %> | Interesados: <%= @count[:interested] %> | Clientes: <%= @count[:client] %></h3>
 
-<%= link_to "Ingresar nuevo prospecto", new_lead_path, class: "btn btn-primary" %>
-
-<p>Prospectos: <%= @count[:prospect] %> | Interesados: <%= @count[:interested] %> | Clientes: <%= @count[:client] %></p>
-
-<table class="table">
+<table class="table text-center">
   <thead>
     <tr>
       <th>Email</th>

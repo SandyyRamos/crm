@@ -1,11 +1,11 @@
-<h2><%= @lead.name %></h2>
-<p>Email: <%= @lead.email %></p>
+<h2 class="m-2"><%= @lead.name %></h2>
+<p class="m-2">Email: <%= @lead.email %></p>
 
-<h3>Conversaciones</h3>
+<h4>Conversaciones</h4>
 <ul>
   <% @conversations.each do |conversation| %>
     <li>
-      <%= conversation.detail%>
+       <%= conversation.detail.present? ? conversation.detail : "Sin detalle" %>
     </li>
   <% end %>
-</ul>
+</ul
