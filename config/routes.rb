@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'conversations/index'
+  get 'conversations/new'
+  get 'conversations/create'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -10,6 +13,6 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :leads do
-    resources :conversations, only: [:create]
+    resources :conversations, only: [:index, :new, :create]
   end
 end
