@@ -28,7 +28,7 @@ class LeadsController < ApplicationController
 
   def show
     @conversations = @lead.conversations
-    @conversation = Conversation.new
+    @conversation = @lead.conversations.build
   end
 
   def edit
