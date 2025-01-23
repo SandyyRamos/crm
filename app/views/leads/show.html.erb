@@ -1,11 +1,20 @@
-<h2 class="m-2"><%= @lead.name %></h2>
+<div class="container sticky-top bg-white">
+<h2 class="mt-5"><%= @lead.name %></h2>
 <p class="m-2">Email: <%= @lead.email %></p>
 
-<h4>Conversaciones</h4>
-<ul>
-  <% @conversations.each do |conversation| %>
-    <li>
-       <%= conversation.detail.present? ? conversation.detail : "Sin detalle" %>
-    </li>
+<div class="d-flex justify-content-between mb-2">
+  <h3> Conversaciones</h3> <%= link_to "Volver", leads_path, class: "btn btn-secondary" %>
+</div>
+<%= form_with model: [@lead, @conversation], local: true do |form| %>
+    <div class="form-group mb-3">
+      <%= form.text_area :detail, rows: 5, class: "form-control" %>
+    </div>
+    <%= form.submit "Subir información", class: "btn btn-success mb-3" %>
   <% end %>
-</ul
+</div>
+
+  <div class="container">
+    <ul>
+      <%= render @conversations %>
+    </ul
+  </div>
