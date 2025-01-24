@@ -5,10 +5,14 @@
   <td><%= lead.status %></td>
   <td><%= lead.add_by %></td>
         <td><%= lead.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-        <td><%= lead.conversation %></td>
+        <td><%= lead.conversations.count %> <i class="fa-solid fa-comment"></i></td>
         <td>
-          <%= link_to "Ver", lead_path(lead), class: 'btn btn-info' %>
-          <%= link_to "Editar", edit_lead_path(lead), class: 'btn btn-warning' %>
+          <%= link_to lead_path(lead) do %>
+          <i class="fa-solid fa-eye"></i>
+          <% end %>
+          <%= link_to edit_lead_path(lead) do %>
+          <i class="fa-solid fa-pencil"></i>
+          <% end %>
           <%= link_to "Eliminar", lead_path(lead), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de eliminar este lead?' }, class: 'btn btn-danger' %>
         </td>
       </tr>

@@ -8,6 +8,7 @@ class LeadsController < ApplicationController
       interested: Lead.where(status: :interested).count,
       client: Lead.where(status: :client).count
     }
+
   end
 
   def new

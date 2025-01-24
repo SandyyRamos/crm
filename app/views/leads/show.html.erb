@@ -1,9 +1,9 @@
 <div class="container sticky-top bg-white">
-<h2 class="mt-5"><%= @lead.name %></h2>
+<h2 class="mt-5"><strong><%= @lead.name %></strong></h2>
 <p class="m-2">Email: <%= @lead.email %></p>
 
 <div class="d-flex justify-content-between mb-2">
-  <h3> Conversaciones</h3> <%= link_to "Volver", leads_path, class: "btn btn-secondary" %>
+  <h4> Conversaciones</h4> <%= link_to "Volver", leads_path, class: "btn btn-secondary" %>
 </div>
 <%= form_with model: [@lead, @conversation], local: true do |form| %>
     <div class="form-group mb-3">
