@@ -1,23 +1,22 @@
 
-<% @leads_with_conversations.each do |item| %>
+
   <tr>
-    <td><%= item[:lead].email %></td>
-    <td><%= item[:lead].name %></td>
-    <td><%= item[:lead].phone %></td>
-    <td><%= item[:lead].status %></td>
-    <td><%= item[:lead].add_by %></td>
-    <td><%= item[:lead].created_at.strftime("%d/%m/%Y %H:%M") %></td>
-    <td><%= item[:conversations_plus_one] - 1 %> <i class="fa-solid fa-comment fa-lg green-icon"></i></td>
+    <td><%= lead.email %></td>
+    <td><%= lead.name %></td>
+    <td><%= lead.phone %></td>
+    <td><%= lead.status %></td>
+    <td><%= lead.add_by %></td>
+    <td><%= lead.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+    <td><%= lead.conversation %> <i class="fa-solid fa-comment fa-lg green-icon"></i></td>
     <td>
-      <%= link_to lead_path(item[:lead]), class: "btn btn-success" do %>
+      <%= link_to lead_path(lead), class: "btn btn-success" do %>
         <i class="fa-solid fa-eye fa-lg"></i>
       <% end %>
-      <%= link_to edit_lead_path(item[:lead]), class: "btn btn-success" do %>
+      <%= link_to edit_lead_path(lead), class: "btn btn-success" do %>
         <i class="fa-solid fa-pencil fa-lg"></i>
       <% end %>
-      <%= link_to lead_path(item[:lead]), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de eliminar este lead?' }, class: "btn btn-success" do %>
+      <%= link_to lead_path(lead), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de eliminar este lead?' }, class: "btn btn-success" do %>
         <i class="fa-solid fa-trash fa-lg"></i>
       <% end %>
     </td>
   </tr>
-<% end %>

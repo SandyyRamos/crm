@@ -10,6 +10,7 @@
       <%= form.text_area :detail, rows: 5, class: "form-control" %>
     </div>
     <%= form.submit "Subir información", class: "btn btn-success mb-3" %>
+    <%= @conversation.errors.full_messages %>
   <% end %>
 </div>
 

@@ -8,9 +8,6 @@ class LeadsController < ApplicationController
       interested: Lead.where(status: "Interesado").count,
       client: Lead.where(status: "Cliente").count
     }
-    @leads_with_conversations = @leads.map do |lead|
-      { lead: lead, conversations_plus_one: lead.conversations.count + 1 }
-    end
   end
 
   def new
@@ -21,7 +18,6 @@ class LeadsController < ApplicationController
     @lead = Lead.new(lead_params)
     @lead.status = "Prospecto"
     @lead.add_by = current_user.email
-    @lead.conversation = 0
     if @lead.save
       redirect_to leads_path, notice: "Creado con éxito."
     else
