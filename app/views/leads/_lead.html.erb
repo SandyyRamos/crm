@@ -5,14 +5,16 @@
   <td><%= lead.status %></td>
   <td><%= lead.add_by %></td>
         <td><%= lead.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-        <td><%= lead.conversations.count %> <i class="fa-solid fa-comment"></i></td>
+        <td><%= lead.conversations.count %> <i class="fa-solid fa-comment fa-lg green-icon"></i></td>
         <td>
-          <%= link_to lead_path(lead) do %>
-          <i class="fa-solid fa-eye"></i>
+          <%= link_to lead_path(lead), class: "btn btn-success" do%>
+          <i class="fa-solid fa-eye fa-lg"></i>
           <% end %>
-          <%= link_to edit_lead_path(lead) do %>
-          <i class="fa-solid fa-pencil"></i>
+          <%= link_to edit_lead_path(lead), class: "btn btn-success"  do %>
+          <i class="fa-solid fa-pencil fa-lg"></i>
           <% end %>
-          <%= link_to "Eliminar", lead_path(lead), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de eliminar este lead?' }, class: 'btn btn-danger' %>
+          <%= link_to lead_path(lead), data: { turbo_method: :delete, turbo_confirm: '¿Estás seguro de eliminar este lead?' }, class: "btn btn-success"  do %>
+          <i class="fa-solid fa-trash fa-lg"></i>
+          <% end %>
         </td>
       </tr>
