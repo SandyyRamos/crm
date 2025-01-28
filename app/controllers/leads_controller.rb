@@ -8,7 +8,9 @@ class LeadsController < ApplicationController
       interested: Lead.where(status: :interested).count,
       client: Lead.where(status: :client).count
     }
-
+    @leads_with_conversations = @leads.map do |lead|
+      { lead: lead, conversations_plus_one: lead.conversations.count + 1 }
+    end
   end
 
   def new
