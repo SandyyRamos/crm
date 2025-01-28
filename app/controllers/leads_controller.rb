@@ -4,9 +4,9 @@ class LeadsController < ApplicationController
   def index
     @leads = Lead.order_desc
     @count = {
-      prospect: Lead.where(status: :prospect).count, #where pone condiciones los que cumple una condicion
-      interested: Lead.where(status: :interested).count,
-      client: Lead.where(status: :client).count
+      prospect: Lead.where(status: "Prospecto").count, #where pone condiciones los que cumple una condicion
+      interested: Lead.where(status: "Interesado").count,
+      client: Lead.where(status: "Cliente").count
     }
     @leads_with_conversations = @leads.map do |lead|
       { lead: lead, conversations_plus_one: lead.conversations.count + 1 }
@@ -19,7 +19,7 @@ class LeadsController < ApplicationController
 
   def create
     @lead = Lead.new(lead_params)
-    @lead.status = "prospect"
+    @lead.status = "Prospecto"
     @lead.add_by = current_user.email
     @lead.conversation = 0
     if @lead.save
