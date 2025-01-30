@@ -69,3 +69,6 @@ end
 gem "devise", "~> 4.9"
 
 gem 'ostruct'
+
+gem 'simple_form'
+

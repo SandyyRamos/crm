@@ -11,7 +11,8 @@ class ConversationsController < ApplicationController
       @lead.save
       redirect_to @lead, notice: 'La conversación fue agregada exitosamente.'
     else
-      render :new, status: :unprocessable_entity
+      @conversations = @lead.conversations
+      render "leads/show", status: :unprocessable_entity
     end
   end
 end
