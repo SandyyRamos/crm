@@ -1,26 +1,41 @@
-<h1 class="text-center mt-5 mb-5">
-  Prospectos | <%= link_to "Ingresar nuevo prospecto", new_lead_path, style: "color: green; text-decoration: none;" %>
+<h1 class="text-center p-2 mt-5 mb-3">
+  <strong>Prospectos</strong> |
+  <%= link_to "Ingresar nuevo prospecto", new_lead_path, class: "text-success text-decoration-none" %>
 </h1>
 
-<h3 class= "text-center mb-5">Prospectos: <%= @count[:prospect] %> | Interesados: <%= @count[:interested] %> | Clientes: <%= @count[:client] %></h3>
+<h3 class="text-center mb-5">
+  <div class="d-flex justify-content-center">
+    <div class="text-center mx-4">
+      <span class="d-block" style="font-size: 2rem;"><%= @count[:prospect] %></span>
+      <span>Prospectos</span>
+    </div>
+    <div class="text-center mx-4">
+      <span class="d-block" style="font-size: 2rem;"><%= @count[:interested] %></span>
+      <span>Interesados</span>
+    </div>
+    <div class="text-center mx-4">
+      <span class="d-block" style="font-size: 2rem;"><%= @count[:client] %></span>
+      <span>Clientes</span>
+    </div>
+  </div>
+</h3>
 
-<table class="table text-center">
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Nombre</th>
-      <th>Teléfono</th>
-      <th>Status</th>
-      <th>Ingresado por</th>
-      <th>Fecha de ingreso</th>
-      <th>Conversaciones</th>
-      <th>Opciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <%# <% @leads.each do |lead| %>
-    <%# <%= render "lead", lead: lead %>
-    <%# <% end %>
-    <%= render @leads %>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <table class="table table-striped table-bordered table-hover table-sm text-center mx-auto" style="width: 95%;">
+    <thead class="table-dark">
+      <tr>
+        <th>Email</th>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Status</th>
+        <th>Ingresado por</th>
+        <th>Fecha de ingreso</th>
+        <th>Conversaciones</th>
+        <th>Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @leads %>
+    </tbody>
+  </table>
+</div>
