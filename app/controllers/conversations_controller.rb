@@ -13,12 +13,10 @@ class ConversationsController < ApplicationController
       @conversations = @lead.conversations
       render "leads/show", status: :unprocessable_entity
     end
-  end
+end
 
   private
 
 def conversation_params
   params.require(:conversation).permit(:detail)
-end
-
 end

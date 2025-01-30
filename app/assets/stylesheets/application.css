@@ -13,6 +13,4 @@
  *= require_tree .
  *= require_self
  */
- .green-icon {
-  color: green;
-}
+@import "components/conversation";

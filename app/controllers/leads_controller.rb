@@ -18,6 +18,7 @@ class LeadsController < ApplicationController
     @lead = Lead.new(lead_params)
     @lead.status = "Prospecto"
     @lead.add_by = current_user.email
+    @lead.conversation = 0
     if @lead.save
       redirect_to leads_path, notice: "Creado con éxito."
     else

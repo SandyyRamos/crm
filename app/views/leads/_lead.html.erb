@@ -7,7 +7,7 @@
     <td><%= lead.status %></td>
     <td><%= lead.add_by %></td>
     <td><%= lead.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-    <td><%= lead.conversation %> <i class="fa-solid fa-comment fa-lg green-icon"></i></td>
+    <td><%= lead.conversation? ? lead.conversation : "0" %> <i class="fa-solid fa-comment fa-lg green-icon"></i></td>
     <td>
       <%= link_to lead_path(lead), class: "btn btn-success" do %>
         <i class="fa-solid fa-eye fa-lg"></i>
