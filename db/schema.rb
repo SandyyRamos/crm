@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_01_22_162947) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_13_225258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_22_162947) do
     t.integer "conversation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "conversations_count", default: 0, null: false #Se agregó esta columna a través de una migración
   end
 
   create_table "users", force: :cascade do |t|

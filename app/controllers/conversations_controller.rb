@@ -7,7 +7,7 @@ class ConversationsController < ApplicationController
     # @conversation = Conversation.new(conversations_params)
     # @conversation.lead_id = @lead.id
     if @conversation.save
-      @lead.update_column(:conversation, @lead.conversations.count) # Actualiza el campo 'conversation' con el nuevo número de conversaciones
+      # @lead.update_column(:conversation, @lead.conversations.count) # Actualiza el campo 'conversation' con el nuevo número de conversaciones
       redirect_to @lead, notice: 'La conversación fue agregada exitosamente.'
     else
       @conversations = @lead.conversations
@@ -19,4 +19,6 @@ end
 
 def conversation_params
   params.require(:conversation).permit(:detail)
+end
+
 end
